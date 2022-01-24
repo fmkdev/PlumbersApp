@@ -1,0 +1,27 @@
+@{
+    Layout = "_PlumberLayout";
+    ViewData["Title"] = "Plumber";
+}
+
+@model IEnumerable<PlumbingService.DTOs.JobDTO>
+
+
+<div class="form-row">
+    @foreach (var job in Model)
+    {
+        
+        <div class="card" style="width: 18rem;">
+            <img style="border-radius: 30%;" src="~/myImage/banner2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <b>Creation Time: @Html.DisplayFor(data => job.CreationTime)</b><br>
+                <b>Job Reference: @Html.DisplayFor(data => job.JobReference)</b><br>
+                <b>Job Status: @Html.DisplayFor(data => job.JobStatus)</b><br>
+                <b>Job Type: @Html.DisplayFor(data => job.JobType)</b><br>
+                <b>Customer Name: @Html.DisplayFor(data => job.CustomerName)</b><br>
+                <b>Customer Number: @Html.DisplayFor(data => job.CustomerNumber)</b><br>
+                <p class="card-text">@Html.DisplayFor(data => job.Description)</p>
+                <a asp-action="UpdateJobStatus" asp-controller="Plumber" asp-route-id="@job.Id" class="btn btn-primary">Accept Job</a>
+            </div>
+        </div>
+    }
+</div>

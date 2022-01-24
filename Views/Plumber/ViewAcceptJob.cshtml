@@ -1,0 +1,30 @@
+@{
+    Layout = "_PlumberLayout";
+}
+
+@model IEnumerable<PlumbingService.DTOs.JobDTO>
+
+
+<div class="form-row">
+    @foreach (var job in Model)
+    {
+        <div class="form-group col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img style="border-radius: 30%;" src="~/myImage/banner2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <b>Creation Time: </b><p>@Html.DisplayFor(data => job.CreationTime)</p>
+                    <b>Job Reference: </b> <p>@Html.DisplayFor(data => job.JobReference)</p>
+                    <b>Job Status: </b><p>@Html.DisplayFor(data => job.JobStatus)</p>
+                    <b>Job Type: </b><p>@Html.DisplayFor(data => job.JobType)</p>
+                    <b>Customer Name: </b><p>@Html.DisplayFor(data => job.CustomerName)</p>
+                    <b>Customer Number: </b><p>@Html.DisplayFor(data => job.CustomerNumber)</p>
+                    <b>Plumber Name: </b><p>@Html.DisplayFor(data => job.PlumberName)</p>
+                    <b>Plumber Number: </b><p>@Html.DisplayFor(data => job.PlumberNumber)</p>
+                    <p class="card-text">@Html.DisplayFor(data => job.Description)</p>
+                    <a asp-action="SubmitReport" asp-controller="Plumber" asp-route-id="@job.Id"
+                    class="btn btn-primary">Task Done</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

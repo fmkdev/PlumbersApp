@@ -1,0 +1,27 @@
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@model PlumbingService.DTOs.CustomerReportModel
+
+<div class="bg-light">
+    <h1 class="tagcolor" style="color:mediumblue">MAKE A REPORT</h1>
+    <p class="tagcolor" style="color:mediumblue">let us know if you like our servie or not.</p>
+    <hr class="tagcolor" style="color:mediumblue">
+
+</div>
+
+<form asp-controller="Customer" asp-action="SubmitReport">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label asp-for="CReport" class="control-label"></label>
+            <input asp-for="CReport" class="form-control" />
+            <span asp-validation-for="CReport" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group ">
+        <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12"
+            data-toggle="modal" />
+    </div>
+</form>
